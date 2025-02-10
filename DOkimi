@@ -1,0 +1,14 @@
+# Χρησιμοποιούμε Python ως βάση
+FROM python:3.9
+
+# Ορίζουμε τον φάκελο εργασίας μέσα στο container
+WORKDIR /app
+
+# Αντιγράφουμε όλα τα αρχεία μέσα στο container
+COPY . .
+
+# Αν το πρόγραμμα χρειάζεται εξαρτήσεις (π.χ. pygame), προσθέτουμε requirements.txt
+RUN pip install --no-cache-dir pygame || true
+
+# Ορίζουμε την εντολή που θα εκτελείται όταν ξεκινά το container
+CMD ["python", "Alarm_clock.py"]
